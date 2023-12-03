@@ -46,7 +46,7 @@ useEffect(()=>{
         
     },[])
   return (
-    <div id="menu" className="container mx-auto p-4">
+    <div id="menu" className=" justify-center items-center mx-auto p-4">
     <h1 className="text-3xl font-bold mb-4">Food Menu</h1>
 
     <fieldset class="flex flex-wrap gap-3">

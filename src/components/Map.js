@@ -25,7 +25,7 @@ export default function Map({locations}){
         <AnyReactComponent
           lat={locations.latitude}
           lng={locations.longitude}
-          text="!!!!!!!"
+          text="Location"
         />
       </GoogleMapReact>
     </div>
