@@ -13,8 +13,10 @@ export default function Map({locations}){
   };
 
   return (
-    // Important! Always set the container height explicitly
-    <div style={{ height: '100vh', width: '100%' }}>
+    <div id='map'className="flex flex-col justify-center items-center space-y-6">
+      <h1 className="text-3xl font-bold mb-4">Find us</h1>
+       
+    <div style={{ height: '80vh', width: '80%' }}>
       <GoogleMapReact
         bootstrapURLKeys={{ key: "AIzaSyD-ZMuEInDRQTPeG0pKB-bPlDhpaZmiSto" }}
         defaultCenter={defaultProps.center}
@@ -23,9 +25,12 @@ export default function Map({locations}){
         <AnyReactComponent
           lat={locations.latitude}
           lng={locations.longitude}
-          text="My Marker"
+          text="!!!!!!!"
         />
       </GoogleMapReact>
     </div>
+
+    </div>
+  
   );
 }

@@ -3,9 +3,9 @@ import ReactStarRatings from 'react-star-ratings';
 const Reviews = ({review}) => {
     const [rating, setRating] = useState(0);
   return (
-    <section class="bg-white">
+    <section id='review' class="bg-white">
   <div class="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
-    <h2 class="text-center text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+    <h2 class="text-center text-3xl font-bold mb-4">
       Read trusted reviews from our customers
     </h2>
 

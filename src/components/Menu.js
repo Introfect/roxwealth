@@ -12,11 +12,11 @@ const MenuItemCard = ({ item }) => (
         className="h-80 w-72 object-cover rounded-t-xl"
       />
       <div className="px-4 py-3 w-72">
-        <span className="text-gray-400 mr-3 uppercase text-xs">Brand</span>
+        <span className="text-gray-400 mr-3 uppercase text-xs">Available</span>
         <p className="text-lg font-bold text-black truncate block capitalize">{item.name}</p>
         <div className="flex items-center">
           <p className="text-lg font-semibold text-black cursor-auto my-3">${item.price.toFixed(2)}</p>
-          <span className="text-gray-400 mr-3 uppercase text-xs">{item.description}</span>
+          <span className="text-gray-400 mx-3   uppercase text-xs">{item.description}</span>
           <div className="ml-auto">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-bag-plus" viewBox="0 0 16 16">
               <path fillRule="evenodd" d="M8 7.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-1.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z" />
@@ -46,7 +46,7 @@ useEffect(()=>{
         
     },[])
   return (
-    <div className="container mx-auto p-4">
+    <div id="menu" className="container mx-auto p-4">
     <h1 className="text-3xl font-bold mb-4">Food Menu</h1>
 
     <fieldset class="flex flex-wrap gap-3">
@@ -90,7 +90,7 @@ useEffect(()=>{
     {menu.categories.map((category) => (
         <div key={category.name} className="mb-8">
         <h2 className="text-2xl font-semibold mb-4">{category.name}</h2>
-        <div className="flex flex-wrap items-center justify-center">
+        <div className="flex flex-row md:flex-col items-center justify-center">
           {category.items.map((item) => (
               <MenuItemCard key={item.name} item={item} />
               ))}
@@ -103,11 +103,10 @@ useEffect(()=>{
     showMenu===2?
 
     <div className='flex flex-col justify-center items-center'>
-
     {menu.seasonal_menu && (
         <div className="mb-8">
         <h2 className="text-2xl font-semibold mb-4">{menu.seasonal_menu.name}</h2>
-        <div className="flex flex-wrap justify-center items-center">
+        <div className="flex flex-col md:flex-row justify-center items-center">
           {menu.seasonal_menu.items.map((item) => (
               <MenuItemCard key={item.name} item={item} />
               ))}

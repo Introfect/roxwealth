@@ -5,18 +5,18 @@ const Awards = ({awards}) => {
 
   <section>
     <div class="max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
-      <div class="flex flex-col gap-y-8 lg:items-center lg:gap-x-16">
+      <div class="flex flex-col justify-center items-center gap-y-8 lg:items-center lg:gap-x-16">
         <div class="mx-auto max-w-lg text-center lg:mx-0 ltr:lg:text-left rtl:lg:text-right">
-          <h2 class="text-3xl font-bold sm:text-4xl">Awards</h2>
+          <h2 class="text-3xl text-center font-bold mb-4">Awards</h2>
 
         </div>
   
-        <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
+        <div id='award' class="flex flex-col md:flex-row space-y-4 md:space-y-0  justify-evenly items-center ">
             {awards && awards.map((item)=>{
                 return(
                     <a
-                    class="block rounded-xl border-2  border-red-500 p-4 shadow-sm hover:border-red-800 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
-                    href="/accountant"
+                    class="  mx-4 rounded-xl border-2  border-red-500 p-4 shadow-sm hover:border-red-800 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
+                    href="/"
                   >
                     <span class="inline-block rounded-lg bg-gray-50 p-3">
                       <svg

@@ -53,16 +53,16 @@ function App() {
     return <p>Error: {error}</p>;
   }
   return (
-    <div className='bg-orange-100'>
+    <div className='px-10 mx-auto'>
       
         <Nav/>
         <Header amb={data.ambiance.description} name={data.name}/>
-        {/* <BestSellers/> */}
         <Menu menu={data.menu}/>
-        {/* <FoodMenu menu={data.restaurant.menu}/> */}
+ 
         <ChefAwards chefs={data.chef} awards={data.awards}/>
-        <Map locations={data.location}/>
         <Reviews review={data.reviews}/>
+        <Map locations={data.location}/>
+        
         <Footer/> 
     </div>
   );

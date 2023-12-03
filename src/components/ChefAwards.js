@@ -4,7 +4,7 @@ import Awards from './Awards'
 
 const ChefAwards = ({chefs,awards}) => {
   return (
-    <div>
+    <div className='flex flex-col justify-center items-center'>
         <div className='grid grid-flow-col'>
     <Chef chef={chefs}/>
         </div>
