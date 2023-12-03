@@ -27,7 +27,8 @@ now instal the dependency for the react application
 Run the server before the react application, json file is alteady in the project repo run 
 
 ```bash
-json-server db.json```
+json-server db.json
+```
 
 I have added the google maps api key in the code itself for avoiding problems while setting on your devices
 
