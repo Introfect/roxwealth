@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+
+import Card from './components/Card';
+import { Header } from './components/Header';
+import Menu from './components/Menu';
+import { Nav } from './components/Nav';
+import {data} from "./data"
+import Map from "./components/Map"
+import ChefAwards from './components/ChefAwards';
+import Reviews from './components/Reviews';
+import Footer from './components/Footer';
+import BestSellers from './components/BestSellers';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='bg-orange-100'>
+
+    <div className="mx-auto px-20">
+      <Nav/>
+      <Header amb={data.restaurant.ambiance.description} name={data.restaurant.name}/>
+      {/* <BestSellers/> */}
+      <Menu menu={data.restaurant.menu}/>
+      <ChefAwards chefs={data.restaurant.chef} awards={data.restaurant.awards}/>
+      <Map locations={data.restaurant.location}/>
+      <Reviews review={data.restaurant.reviews}/>
+      <Footer/>
+
+    </div>
+  
     </div>
   );
 }
