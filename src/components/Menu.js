@@ -3,27 +3,34 @@ import {data} from "../data"
 import Card from './Card';
 
 
-const getRandomImage = () => {
-    // Use Unsplash Source for random food images
-    const randomImageNumber = Math.floor(Math.random() * 1000) + 1;
-    return `https://source.unsplash.com/collection/953316/300x200/?food=${randomImageNumber}`;
-  };
 const MenuItemCard = ({ item }) => (
-    <div className="bg-white shadow-md p-4 rounded-md mb-4">
-    <img src={getRandomImage()} alt={item.name} className="w-full h-32 object-cover mb-2 rounded" />
-    <h3 className="text-lg font-semibold mb-2">{item.name}</h3>
-    <p className="text-gray-600 mb-2">{item.description}</p>
-    <p className="text-gray-700">Price: ${item.price.toFixed(2)}</p>
-    <p className="text-gray-700">Ingredients: {item.ingredients.join(', ')}</p>
-    <p className="text-gray-700">Nutritional Info: {JSON.stringify(item.nutritional_info)}</p>
-    <p className="text-gray-700">Seasonal Availability: {item.seasonal_availability.join(', ')}</p>
-    {item.customizable_options && (
-      <p className="text-gray-700">Customizable Options: {item.customizable_options.join(', ')}</p>
-    )}
+    <div className="w-72 mx-8 my-6   bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+    <a href="#">
+      <img
+        src='https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+        alt={item.name}
+        className="h-80 w-72 object-cover rounded-t-xl"
+      />
+      <div className="px-4 py-3 w-72">
+        <span className="text-gray-400 mr-3 uppercase text-xs">Brand</span>
+        <p className="text-lg font-bold text-black truncate block capitalize">{item.name}</p>
+        <div className="flex items-center">
+          <p className="text-lg font-semibold text-black cursor-auto my-3">${item.price.toFixed(2)}</p>
+          <span className="text-gray-400 mr-3 uppercase text-xs">{item.description}</span>
+          <div className="ml-auto">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-bag-plus" viewBox="0 0 16 16">
+              <path fillRule="evenodd" d="M8 7.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-1.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z" />
+              <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </a>
   </div>
   );
 
 const Menu = ({menu}) => {
+    const [showMenu,setShowMenu]=useState(1)
     const [allYear,setAllYear]=useState([]);
     // const [menu,setMenu]=useState(1)
     const[internamMenu,setInternalMenu]=useState(0)
@@ -39,132 +46,76 @@ useEffect(()=>{
         
     },[])
   return (
-    // <div>
- 
-    //     <div className='flex-flex-col justify-center items-center space-y-5'>   
-    //         <div class="grid place-items-center">
-    //     <h1 className='text-3xl font-bold sm:text-4xl mb-10'>Menu</h1>
-    //     <div class="grid w-[20 rem] grid-cols-2 gap-1 rounded-md bg-orange-200 p-2">
-    //       <div onClick={() => setMenu(1)}>
-    //         <input
-    //           type="radio"
-    //           name="option"
-    //           id="1"
-    //           value="1"
-    //           class="peer hidden"
-    //           checked
-    //         />
-    //         <label
-    //           for="1"
-    //           class="block cursor-pointer select-none rounded-md p-2 text-center peer-checked:bg-red-500 peer-checked:font-bold peer-checked:text-white"
-    //         >
-    //           All Year
-    //         </label>
-    //       </div>
-
-    //       <div onClick={() => setMenu(2)}>
-    //         <input
-    //           type="radio"
-    //           name="option"
-    //           id="2"
-    //           value="2"
-    //           class="peer hidden"
-    //         />
-    //         <label
-    //           for="2"
-    //           class="block cursor-pointer select-none rounded-md p-2 text-center peer-checked:bg-red-500 peer-checked:font-bold peer-checked:text-white"
-    //         >
-    //           Seasonal
-    //         </label>
-    //       </div>
-    //     </div>
-    //   </div>
-    //       {allYear &&
-    //         menu === 1 ?
-    //         <div class="grid place-items-center">
-    //     <div class="grid w-[20 rem] grid-flow-col  gap-1 rounded-md bg-orange-200 p-2">
-    //         {allYear.map((item) => {
-                
-    //           return (
-    //             <div onClick={() => {
-    //                 setInternalMenu(1)
-
-    //                 }}>
-    //               <input
-    //                 type="radio"
-    //                 name="option"
-    //                 id="4"
-    //                 value="1"
-    //                 class="peer hidden"
-    //                 checked
-    //               />
-    //               <label
-    //                 for="4"
-    //                 class="block cursor-pointer select-none rounded-md p-2 text-center peer-checked:bg-red-500 peer-checked:font-bold peer-checked:text-white"
-    //               >
-    //                 {item.name}
-    //               </label>
-    //             </div>
-    //           );
-    //         })}
-    //     </div>
-    //   </div>:null}
-    //   {seasonal &&
-    //     menu === 2?
-    //   <div class="grid place-items-center">
-    //     <div class="grid w-[20 rem] grid-flow-col gap-1 rounded-md bg-orange-200 p-2">
-    //     {seasonal.map((item) => {
-    //       return (
-    //         <div onClick={() => {
-    //             setInternalMenu(2)
-    //             console.log("nnn")
-    //             }}>
-    //         <input
-    //           type="radio"
-    //           name="option"
-    //           id="3"
-    //           value="3"
-    //           class="peer hidden"
-    //           checked
-    //         />
-    //         <label
-    //           for="3"
-    //           class="block cursor-pointer select-none rounded-md p-2 text-center peer-checked:bg-red-500 peer-checked:font-bold peer-checked:text-white"
-    //         >
-    //           {item.name}
-    //         </label>
-    //       </div>
-    //       )
-    //     })}
-    //     </div>
-    //     </div>:null}
-      
-
-    //     </div>
-    //     <Card data={menu===2?seasonal:allYear}/>
-    // </div>
     <div className="container mx-auto p-4">
     <h1 className="text-3xl font-bold mb-4">Food Menu</h1>
+
+    <fieldset class="flex flex-wrap gap-3">
+  <legend class="sr-only">Color</legend>
+  <div>
+    <input
+      type="radio"
+      name="ColorOption"
+      value="ColorBlack"
+      id="ColorBlack"
+      class="peer hidden"
+      checked
+    />
+    <label
+    onClick={()=>setShowMenu(1)}
+      for="ColorBlack"
+      class="flex cursor-pointer items-center justify-center rounded-md border border-gray-100 bg-white px-3 py-2 text-gray-900  peer-checked:bg-red-500 peer-checked:text-white"
+    >
+      <p class="text-sm font-medium">All year menu</p>
+    </label>
+  </div>
+
+  <div>
+    <input type="radio" name="ColorOption" value="ColorRed" id="ColorRed" class="peer hidden" />
+
+    <label
+     onClick={()=>setShowMenu(2)}
+      for="ColorRed"
+      class="flex cursor-pointer items-center border-red-500 justify-center rounded-md border  bg-white px-3 py-2 text-gray-900   peer-checked:bg-red-500 peer-checked:text-white"
+    >
+      <p class="text-sm font-medium">Seasonal</p>
+    </label>
+  </div>
+
+</fieldset>
+
+
+{
+    showMenu===1?
+    <div className='flex flex-wrap justify-evenly items-center'>
     {menu.categories.map((category) => (
-      <div key={category.name} className="mb-8">
+        <div key={category.name} className="mb-8">
         <h2 className="text-2xl font-semibold mb-4">{category.name}</h2>
-        <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="flex flex-wrap items-center justify-center">
           {category.items.map((item) => (
-            <MenuItemCard key={item.name} item={item} />
-          ))}
+              <MenuItemCard key={item.name} item={item} />
+              ))}
         </div>
       </div>
     ))}
+    </div>:null
+}
+{
+    showMenu===2?
+
+    <div className='flex flex-col justify-center items-center'>
+
     {menu.seasonal_menu && (
-      <div className="mb-8">
+        <div className="mb-8">
         <h2 className="text-2xl font-semibold mb-4">{menu.seasonal_menu.name}</h2>
-        <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="flex flex-wrap justify-center items-center">
           {menu.seasonal_menu.items.map((item) => (
-            <MenuItemCard key={item.name} item={item} />
-          ))}
+              <MenuItemCard key={item.name} item={item} />
+              ))}
         </div>
       </div>
     )}
+    </div>:null
+}
   </div>
   );
 }
