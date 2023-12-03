@@ -46,11 +46,11 @@ function App() {
   }, []);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <p className='h-screen flex justify-center items-center text-xl font-bold'>Loading...</p>;
   }
 
   if (error) {
-    return <p>Error: {error}</p>;
+    return <p className='h-screen flex justify-center items-center text-xl font-bold'>Error: {error}</p>;
   }
   return (
     <div className='px-10 mx-auto'>
