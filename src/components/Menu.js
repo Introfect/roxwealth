@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import {data} from "../data"
-import Card from './Card';
+import React, { useState } from 'react'
+
 
 
 const MenuItemCard = ({ item }) => (
@@ -31,20 +30,6 @@ const MenuItemCard = ({ item }) => (
 
 const Menu = ({menu}) => {
     const [showMenu,setShowMenu]=useState(1)
-    const [allYear,setAllYear]=useState([]);
-    // const [menu,setMenu]=useState(1)
-    const[internamMenu,setInternalMenu]=useState(0)
-    const [seasonal,setSeasonal]=useState([])
-
-useEffect(()=>{
-        const allYearFood=data && data.restaurant.menu.categories.filter(item=>item);
-        allYearFood && setAllYear([...allYearFood])
-
-        const seasonalFood=data && data.restaurant.menu.seasonal_menu.items.filter(item=>item);
-        seasonalFood && setSeasonal([...seasonalFood])
-       
-        
-    },[])
   return (
     <div id="menu" className=" justify-center items-center mx-auto p-4">
     <h1 className="text-3xl font-bold mb-4">Food Menu</h1>

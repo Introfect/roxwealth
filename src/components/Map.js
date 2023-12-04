@@ -1,7 +1,8 @@
 import React from "react";
 import GoogleMapReact from 'google-map-react';
+import { MapPin } from "lucide-react";
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
+const Marker = ({text}) => <div><MapPin className="text-red-500"/></div>;
 
 export default function Map({locations}){
   const defaultProps = {
@@ -9,7 +10,7 @@ export default function Map({locations}){
       lat: locations.latitude,
       lng: locations.longitude
     },
-    zoom: 11
+    zoom: 13
   };
 
   return (
@@ -22,10 +23,10 @@ export default function Map({locations}){
         defaultCenter={defaultProps.center}
         defaultZoom={defaultProps.zoom}
       >
-        <AnyReactComponent
+        <Marker
           lat={locations.latitude}
           lng={locations.longitude}
-          text="Location"
+          text="MY Location"
         />
       </GoogleMapReact>
     </div>
